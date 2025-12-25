@@ -1,0 +1,212 @@
+/* Cross-browser baseline */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Make form controls render more consistently across browsers */
+input,
+select,
+button,
+textarea {
+  font: inherit;
+}
+
+/* Typography + consistent design tokens */
+:root {
+  --app-radius: 16px;
+  --app-card-bg: var(--bs-body-bg);
+  --app-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  --app-border: rgba(15, 23, 42, 0.08);
+  --app-page-bg: #f6f7fb;
+}
+
+/* Dark theme page background */
+[data-bs-theme="dark"] {
+  --app-page-bg: #0b1220;
+  --app-border: rgba(148, 163, 184, 0.18);
+  --app-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* App background + consistent spacing feel */
+body {
+  background: var(--app-page-bg);
+}
+
+/* Use Inter if available, fallback to system fonts */
+body {
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    "Noto Sans",
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol";
+}
+
+/* Ensure Bootstrap cards feel consistent across engines */
+.card {
+  border-radius: var(--app-radius);
+  border-color: var(--app-border);
+}
+
+.card-header {
+  border-top-left-radius: var(--app-radius);
+  border-top-right-radius: var(--app-radius);
+}
+
+/* Buttons/icons alignment consistency */
+.btn,
+.btn-close {
+  line-height: 1;
+}
+
+/* Slightly denser but consistent spacing for cards */
+.card.shadow-sm {
+  box-shadow: var(--app-shadow) !important;
+}
+
+/* Mobile bottom nav: keep content visible above fixed bar */
+@media (max-width: 767.98px) {
+  .app-content {
+    padding-bottom: calc(92px + env(safe-area-inset-bottom));
+  }
+}
+
+/* Mobile bottom nav (app-like) */
+.bottom-nav {
+  padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid var(--app-border);
+}
+
+[data-bs-theme="dark"] .bottom-nav {
+  background: rgba(17, 24, 39, 0.75);
+}
+
+.bottom-nav__bar {
+  border-radius: 18px;
+  border: 1px solid var(--app-border);
+  box-shadow: var(--app-shadow);
+  padding: 6px 8px;
+}
+
+.bottom-nav__item {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 8px 10px;
+  border-radius: 14px;
+  min-width: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  color: var(--bs-secondary-color);
+  text-decoration: none;
+}
+
+.bottom-nav__item:active {
+  transform: scale(0.98);
+}
+
+.bottom-nav__icon {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+.bottom-nav__label {
+  font-size: 0.72rem;
+  line-height: 1;
+  letter-spacing: 0.01em;
+}
+
+.bottom-nav__item--active {
+  color: var(--bs-primary);
+  background: rgba(var(--bs-primary-rgb), 0.12);
+}
+
+/* Clickable rows */
+.clickable-row {
+  cursor: pointer;
+}
+
+/* Auth screen */
+.auth-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background:
+    radial-gradient(1200px 600px at 20% 10%, rgba(79, 70, 229, 0.22), transparent 55%),
+    radial-gradient(900px 500px at 85% 25%, rgba(16, 185, 129, 0.18), transparent 55%),
+    radial-gradient(900px 500px at 40% 90%, rgba(245, 158, 11, 0.14), transparent 55%),
+    var(--app-page-bg);
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 460px;
+  border-radius: var(--app-radius);
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid var(--app-border);
+  padding: 22px;
+  backdrop-filter: blur(8px);
+}
+
+[data-bs-theme="dark"] .auth-card {
+  background: rgba(17, 24, 39, 0.72);
+}
+
+.auth-brand {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.auth-logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  color: white;
+  background: linear-gradient(135deg, #4f46e5, #06b6d4);
+  box-shadow: 0 10px 30px rgba(79, 70, 229, 0.25);
+}
+
+.auth-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.auth-subtitle {
+  font-size: 0.95rem;
+}
+
+
+
